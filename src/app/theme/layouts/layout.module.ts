@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { DefaultComponent } from '../pages/default/default.component';
 import { AsideNavComponent } from './aside-nav/aside-nav.component';
 import { HeaderNavComponent } from './header-nav/header-nav.component';
-import { AsideLeftDisplayDisabledLoaderEnabledEnabledTypeSpinnerMessageComponent } from '../pages/aside-left-display-disabled-loader-enabled-enabled-type-spinner-message/aside-left-display-disabled-loader-enabled-enabled-type-spinner-message.component';
+import { DashboardComponent } from '../pages/dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
 import { QuickSidebarComponent } from './quick-sidebar/quick-sidebar.component';
 import { ScrollTopComponent } from './scroll-top/scroll-top.component';
@@ -17,7 +17,7 @@ import { UnwrapTagDirective } from '../../_directives/unwrap-tag.directive';
         DefaultComponent,
         AsideNavComponent,
         HeaderNavComponent,
-        AsideLeftDisplayDisabledLoaderEnabledEnabledTypeSpinnerMessageComponent,
+        DashboardComponent,
         FooterComponent,
         QuickSidebarComponent,
         ScrollTopComponent,
@@ -29,7 +29,7 @@ import { UnwrapTagDirective } from '../../_directives/unwrap-tag.directive';
         DefaultComponent,
         AsideNavComponent,
         HeaderNavComponent,
-        AsideLeftDisplayDisabledLoaderEnabledEnabledTypeSpinnerMessageComponent,
+        DashboardComponent,
         FooterComponent,
         QuickSidebarComponent,
         ScrollTopComponent,

@@ -27,7 +27,7 @@ const routes: Routes = [
             },
             {
                 "path": "employees",
-                "loadChildren": ".\/pages\/default\/employees\/employees.module#EmployeesModule"
+                "loadChildren": ".\/pages\/employees\/employees.module#EmployeesModule"
             },
             {
                 "path": "404",
@@ -35,7 +35,7 @@ const routes: Routes = [
             },
             {
                 "path": "",
-                "redirectTo": "index",
+                "redirectTo": "dashboard",
                 "pathMatch": "full"
             }
         ]
