@@ -27,7 +27,7 @@ const routes: Routes = [
             },
             {
                 "path": "employees",
-                "loadChildren": ".\/pages\/employees\/employees.module#EmployeesModule"
+                "loadChildren": ".\/pages\/default\/employees\/employees.module#EmployeesModule"
             },
             {
                 "path": "404",

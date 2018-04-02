@@ -1,14 +1,20 @@
-import { EmployeesComponent } from './employees.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { LayoutModule } from './../../layouts/layout.module';
+import { EmployeesComponent } from './employees.component';
+import { LayoutModule } from '../../../layouts/layout.module';
+import { DefaultComponent } from '../default.component';
 
 const routes: Routes = [
     {
         "path": "",
-        "component": EmployeesComponent,
-    
+        "component": DefaultComponent,
+        "children": [
+            {
+                "path": "",
+                "component": EmployeesComponent
+            }
+        ]
     }
 ];
 @NgModule({
@@ -20,4 +26,8 @@ const routes: Routes = [
         EmployeesComponent
     ]
 })
-export class EmployeesModule {}
+export class EmployeesModule {
+
+
+
+}
