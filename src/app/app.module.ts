@@ -1,3 +1,5 @@
+
+import { HttpService } from './auth/_services/http.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ThemeComponent } from './theme/theme.component';
@@ -19,6 +21,7 @@ import {HttpClientModule, HttpClient} from '@angular/common/http';
 
 
 
+
 @NgModule({
     declarations: [
         ThemeComponent,
@@ -36,7 +39,7 @@ import {HttpClientModule, HttpClient} from '@angular/common/http';
         ReactiveFormsModule,
         HttpClientModule
     ],
-    providers: [ScriptLoaderService, AuthService,
+    providers: [ScriptLoaderService, AuthService, HttpService, AuthenticationService,
         {
           provide: HTTP_INTERCEPTORS,
           useClass: HttpInspectorService,

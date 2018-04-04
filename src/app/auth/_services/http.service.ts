@@ -5,7 +5,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { BaseResponseOptions } from '@angular/http/src/base_response_options';
 
 @Injectable()
-export class HttpService{
+export class HttpService {
   config : AppConfig;
 
   constructor(private http : HttpClient){

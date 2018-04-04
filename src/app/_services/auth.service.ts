@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import {CookieOptions, CookieService } from 'ngx-cookie';
 import { Router, ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
+import { UserData } from "../auth/_models/index";
 
 @Injectable()
+
 
 export class AuthService implements CanActivate{
   
@@ -70,6 +72,18 @@ export class AuthService implements CanActivate{
     }
 
     api(network: string, path: string) {
+    }
+
+    get userData(): UserData {
+        return this.getCookie('currentUser');
+    }
+
+    get authenticated(): boolean {
+        if (this.getCookie('currentUser')) {
+            return true;
+        } else {
+            return false;
+        }
     }
   
 }

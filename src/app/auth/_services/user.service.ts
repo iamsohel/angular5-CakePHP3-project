@@ -16,6 +16,7 @@ export class UserService {
     verify() : Observable <any>{
         if(!this._cookie.getObject('currentUser')){
             return this.http.get('users/verify').map((response: Response) => response.json());
+        
         } else{
             return new Observable<any>(observe => {
                 setTimeout(() => {
