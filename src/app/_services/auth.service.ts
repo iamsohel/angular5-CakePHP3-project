@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import {CookieOptions, CookieService } from 'ngx-cookie';
+import { CookieOptions, CookieService } from 'ngx-cookie';
 import { Router, ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
 
 @Injectable()
 
 
-export class AuthService implements CanActivate{
-  
-    cookieOptions : CookieOptions;
-    constructor(private _cookies : CookieService, private router : Router){
-            this.cookieOptions = {};
+export class AuthService implements CanActivate {
+
+    cookieOptions: CookieOptions;
+    constructor(private _cookies: CookieService, private router: Router) {
+        this.cookieOptions = {};
     }
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-        if(route.data.auth){
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+        if (route.data.auth) {
             const token = this.getToken();
-            if(token){
+            if (token) {
                 return true;
-            }else{
+            } else {
                 this.navigateTo('login').then();
                 return false;
             }
@@ -28,36 +28,36 @@ export class AuthService implements CanActivate{
 
     checkLogin(): Observable<boolean | any> {
         return new Observable((observer) => {
-          setInterval(() => {
-            const user = this.getCookie('currentUser');
-            if (user) {
-              observer.next(user);
-            } else {
-              observer.next(false);
-            }
-          }, 1000);
+            setInterval(() => {
+                const user = this.getCookie('currentUser');
+                if (user) {
+                    observer.next(user);
+                } else {
+                    observer.next(false);
+                }
+            }, 1000);
         });
-      }
-
-    getToken() : string | boolean {
-        const current_user = this. getCookie('currentUser');
-        if(current_user){
-            return current_user.token;
-        }
-         return false;
-        
     }
 
-    getCookie(name : string) : any{
+    getToken(): string | boolean {
+        const current_user = this.getCookie('currentUser');
+        if (current_user) {
+            return current_user.token;
+        }
+        return false;
+
+    }
+
+    getCookie(name: string): any {
         const cookie = this._cookies.getObject(name.trim());
-        if(cookie){
+        if (cookie) {
             return cookie;
-        }else{
+        } else {
             return false;
         }
     }
 
-    setCookie (name : string, value :any) {
+    setCookie(name: string, value: any) {
         this._cookies.putObject(name.trim(), value, this.cookieOptions);
     }
 
@@ -65,7 +65,7 @@ export class AuthService implements CanActivate{
         this._cookies.remove(name, this.cookieOptions);
     }
 
-    navigateTo(name : string ) : Promise<any>{
+    navigateTo(name: string): Promise<any> {
         const promise = this.router.navigate(['name']);
         return promise;
     }
@@ -79,5 +79,5 @@ export class AuthService implements CanActivate{
             return false;
         }
     }
-  
+
 }

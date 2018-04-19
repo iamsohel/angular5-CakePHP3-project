@@ -17,7 +17,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './_services/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationService } from './auth/_services';
-import {HttpClientModule, HttpClient} from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 
 
@@ -41,9 +41,9 @@ import {HttpClientModule, HttpClient} from '@angular/common/http';
     ],
     providers: [ScriptLoaderService, AuthService, HttpService, AuthenticationService,
         {
-          provide: HTTP_INTERCEPTORS,
-          useClass: HttpInspectorService,
-          multi: true
+            provide: HTTP_INTERCEPTORS,
+            useClass: HttpInspectorService,
+            multi: true
         }],
     bootstrap: [AppComponent]
 })

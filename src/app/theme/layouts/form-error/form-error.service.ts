@@ -3,9 +3,9 @@ import { FormControl } from '@angular/forms';
 
 @Injectable()
 export class FormErrorService {
-  control: FormControl;
-  message: string;
+    control: FormControl;
+    message: string;
 
-  constructor() {
-  }
+    constructor() {
+    }
 }

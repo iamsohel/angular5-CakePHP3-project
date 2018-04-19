@@ -1,31 +1,31 @@
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { AppConfig } from './../../_config/app';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BaseResponseOptions } from '@angular/http/src/base_response_options';
 
 @Injectable()
 export class HttpService {
-  config : AppConfig;
+    config: AppConfig;
 
-  constructor(private http : HttpClient){
-      this.config = new AppConfig();
-  }
-
-    get (url:string, option?: any|null): Observable<any>{
-        return this.http.get(this.config.apiEndPoint+url, option);
+    constructor(private http: HttpClient) {
+        this.config = new AppConfig();
     }
 
-    post (url:string, body:any|null, options?: any|null): Observable<any>{
-        return this.http.post(this.config.apiEndPoint+url, body, options);
+    get(url: string, option?: any | null): Observable<any> {
+        return this.http.get(this.config.apiEndPoint + url, option);
     }
 
-    put (url:string, body:any|null, options?: any|null): Observable<any>{
-        return this.http.put(this.config.apiEndPoint+url, body, options);
+    post(url: string, body: any | null, options?: any | null): Observable<any> {
+        return this.http.post(this.config.apiEndPoint + url, body, options);
     }
 
-    delete (url:string,  options?: any|null): Observable<any>{
-        return this.http.delete(this.config.apiEndPoint+url,  options);
+    put(url: string, body: any | null, options?: any | null): Observable<any> {
+        return this.http.put(this.config.apiEndPoint + url, body, options);
+    }
+
+    delete(url: string, options?: any | null): Observable<any> {
+        return this.http.delete(this.config.apiEndPoint + url, options);
     }
 
     getErrorMessage(err: HttpErrorResponse) {

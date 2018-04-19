@@ -12,12 +12,12 @@ import { Helpers } from '../../helpers';
 @Injectable()
 export class AuthenticationService {
 
-    constructor(private http: HttpService, private  _cookie: CookieService, 
-        private router : Router) {
+    constructor(private http: HttpService, private _cookie: CookieService,
+        private router: Router) {
     }
 
     login(email: string, password: string) {
-        return this.http.post('users/login',{ email: email, password: password })
+        return this.http.post('users/login', { email: email, password: password })
             .map((response) => {
                 console.log(response);
                 // login successful if there's a jwt token in the response
@@ -25,7 +25,7 @@ export class AuthenticationService {
                 if (user && user.token) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     user.login_type = 'email';
-                    this._cookie.putObject('currentUser',user);
+                    this._cookie.putObject('currentUser', user);
                     //localStorage.setItem('currentUser', JSON.stringify(user));
                 }
                 return user;
@@ -38,7 +38,7 @@ export class AuthenticationService {
         //localStorage.removeItem('currentUser');
     }
 
-    setUser(data){
-        this._cookie.putObject('currentUser',data);
+    setUser(data) {
+        this._cookie.putObject('currentUser', data);
     }
 }

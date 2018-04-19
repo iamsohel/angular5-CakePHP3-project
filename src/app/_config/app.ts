@@ -1,3 +1,3 @@
-export class AppConfig{
+export class AppConfig {
     apiEndPoint = 'http://c.local.com/api/';
 }

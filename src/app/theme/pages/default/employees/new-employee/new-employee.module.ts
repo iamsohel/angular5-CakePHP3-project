@@ -9,31 +9,31 @@ import { HttpInspectorService } from '../../../../../_services/http-inspector.se
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormErrorModule } from '../../../../layouts/form-error/form-error.module';
 
-const routes : Routes =[
-  {
-    'path':'',
-    'component' : NewEmployeeComponent
-  }
+const routes: Routes = [
+    {
+        'path': '',
+        'component': NewEmployeeComponent
+    }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forChild(routes),
-    FormErrorModule
-  ],
-  declarations: [NewEmployeeComponent],
-  bootstrap: [NewEmployeeComponent],
-  providers: [
-    AuthService,
-    HttpService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpInspectorService,
-      multi: true
-    }],
-  exports: [RouterModule]
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule.forChild(routes),
+        FormErrorModule
+    ],
+    declarations: [NewEmployeeComponent],
+    bootstrap: [NewEmployeeComponent],
+    providers: [
+        AuthService,
+        HttpService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HttpInspectorService,
+            multi: true
+        }],
+    exports: [RouterModule]
 })
 export class NewEmployeeModule { }

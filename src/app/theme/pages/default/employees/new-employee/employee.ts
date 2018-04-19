@@ -7,9 +7,9 @@ export interface Address {
     zip_code: string;
     state: string;
     country: string;
-  }
-  
-  export interface Employee {
+}
+
+export interface Employee {
     id?: number;
     user_id?: number;
     first_name: string;
@@ -26,56 +26,60 @@ export interface Address {
     google: string;
     linkedin: string;
     twitter: string;
+    avatar: string;
+    thumb_image: string;
     address: Address[];
     visibility?: boolean;
     active?: string;
-  }
-  
-  export class Employees {
+}
+
+export class Employees {
     employee: Employee;
-  
+
     constructor() {
     }
-  
+
     init(): Employee {
-      this.employee = {
-        first_name: '',
-        last_name: '',
-        email: '',
-        company_name: '',
-        job_title: '',
-        phone: '',
-        home_phone: '',
-        mobile: '',
-        website: '',
-        fax: '',
-        facebook: '',
-        google: '',
-        linkedin: '',
-        twitter: '',
-        address: [{
-          address_type: 'Mailing Address',
-          address_line: '',
-          city: '',
-          zip_code: '',
-          state: '',
-          country: '',
-        }],
-        visibility: true,
-      };
-      return this.employee;
+        this.employee = {
+            first_name: '',
+            last_name: '',
+            email: '',
+            company_name: '',
+            job_title: '',
+            phone: '',
+            home_phone: '',
+            mobile: '',
+            website: '',
+            fax: '',
+            facebook: '',
+            google: '',
+            linkedin: '',
+            avatar: '',
+            thumb_image: '',
+            twitter: '',
+            address: [{
+                address_type: 'Mailing Address',
+                address_line: '',
+                city: '',
+                zip_code: '',
+                state: '',
+                country: '',
+            }],
+            visibility: true,
+        };
+        return this.employee;
     }
-  
+
     getEmptyAddress(): Address {
-      const addrs = {
-        address_type: '',
-        address_line: '',
-        city: '',
-        zip_code: '',
-        state: '',
-        country: '',
-      };
-      return addrs;
+        const addrs = {
+            address_type: '',
+            address_line: '',
+            city: '',
+            zip_code: '',
+            state: '',
+            country: '',
+        };
+        return addrs;
     }
-  
-  }
+
+}

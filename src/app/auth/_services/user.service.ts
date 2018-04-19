@@ -9,19 +9,19 @@ import { User } from "../_models/index";
 
 @Injectable()
 export class UserService {
-    constructor(private http: Http, private _cookie : CookieService) {
+    constructor(private http: Http, private _cookie: CookieService) {
     }
     user: any;
 
-    verify() : Observable <any>{
-        if(!this._cookie.getObject('currentUser')){
+    verify(): Observable<any> {
+        if (!this._cookie.getObject('currentUser')) {
             return this.http.get('users/verify').map((response: Response) => response.json());
-        
-        } else{
+
+        } else {
             return new Observable<any>(observe => {
                 setTimeout(() => {
                     observe.next({ status: 'ok' });
-                  }, 100);
+                }, 100);
             });
         }
     }
@@ -51,32 +51,32 @@ export class UserService {
     }
 
     // private helper methods
-  checkStatus(): Observable<boolean> {
-    return new Observable<any>(observer => {
-      setInterval(() => {
-        const user: any = this._cookie.getObject('currentUser');
-        if (user) {
-          if (user.token) {
+    checkStatus(): Observable<boolean> {
+        return new Observable<any>(observer => {
+            setInterval(() => {
+                const user: any = this._cookie.getObject('currentUser');
+                if (user) {
+                    if (user.token) {
 
-            observer.next(true);
-          } else {
-            observer.next(false);
-          }
-        } else {
-          observer.next(false);
-        }
-      });
-    });
-  }
+                        observer.next(true);
+                    } else {
+                        observer.next(false);
+                    }
+                } else {
+                    observer.next(false);
+                }
+            });
+        });
+    }
 
 
     private jwt() {
         // create authorization header with jwt token
         const cUser = this._cookie.getObject('currentUser');
         let currentUser = '';
-        if(cUser){
+        if (cUser) {
             this.user = cUser;
-        }else{
+        } else {
             currentUser = null;
             this.user = null;
         }

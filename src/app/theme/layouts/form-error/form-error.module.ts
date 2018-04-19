@@ -3,10 +3,10 @@ import { FormErrorComponent, FormErrorMessageComponent } from './form-error.comp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [FormsModule, ReactiveFormsModule],
-  exports: [FormErrorComponent, FormErrorMessageComponent],
-  providers: [],
-  declarations: [FormErrorComponent, FormErrorMessageComponent],
+    imports: [FormsModule, ReactiveFormsModule],
+    exports: [FormErrorComponent, FormErrorMessageComponent],
+    providers: [],
+    declarations: [FormErrorComponent, FormErrorMessageComponent],
 })
 export class FormErrorModule {
 }
